@@ -4,8 +4,7 @@ version 0.9
 
 Tea-Talk is a tool for texting an other computer on the same network(Wi-Fi).
 
-I created it becuase one day I wanted to share a web-page link with my room mate
-by just using the terminal.
+One day I wanted to share a web-page link with my friend by just using the terminal, thus I created Tea-Talk
 
 Installation : 
 
