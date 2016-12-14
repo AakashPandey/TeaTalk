@@ -13,7 +13,7 @@ Installation :
     sample code: 
         
         cd Downloads/TeaTalk/exec
-            ./Teainstaller
+            ./TeaInstaller
 
 Uninstallation :
 
