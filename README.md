@@ -31,6 +31,6 @@ Written by Aakash Pandey - Dec 15 2016
 Contact - aakash.pandey@live.com
 
 Created & Tested on Elementary OS 
-Feel free to share feedback 
+ ,Feel free to share feedback 
 
 Thanks for Reading !
