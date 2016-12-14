@@ -9,7 +9,7 @@ by just using the terminal.
 
 Installation : 
 
-<*> In Terminal cd to /exec folder and run TeaInstaller
+• In Terminal cd to /exec folder and run TeaInstaller
  
     sample code: 
         
@@ -18,10 +18,9 @@ Installation :
 
 Uninstallation :
 
-<*> 
-    Remove .TeaTalk directory from your /home/user
+• Remove .TeaTalk directory from your /home/user
 
-<*> Delete the last line from your .bashrc
+• Delete the last line from your .bashrc
     
     sample line:
         
