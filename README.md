@@ -33,3 +33,4 @@ Contact - aakash.pandey@live.com
 Created & Tested on Elementary OS, feel free to share feedback 
 
 Thanks for Reading !
+Edit: Working on a major update, will share new version shortly!
