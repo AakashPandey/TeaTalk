@@ -1,0 +1,132 @@
+#!/bin/bash
+usern="$(whoami)"
+cd /home/$usern/.ttalk/
+touch .iphist.dat
+netchk="$(ping -c 1 www.google.com)"
+netst="$(echo $netchk | grep -c 'bytes of data.')"
+curvers=2
+clear
+
+
+
+
+curpath="$(pwd)"
+
+
+
+checkup(){
+	
+	if [[ "$netst" == 0 ]]; then
+		printf "\n\nYou are not connected to Internet, Please try again\n\n"
+		exit
+	fi
+	clear
+	
+	HOST='ftp.drivehq.com'
+    USER='labvisitor1'
+    PASSWD='ttalk123402'
+    ftp cd wwwhome
+    FILE='version.txt'
+    
+	ftp -n $HOST <<END_SCRIPT
+    quote USER $USER
+    quote PASS $PASSWD
+    get $FILE
+    quit
+END_SCRIPT
+	
+	version="$(tail -n 1 version.txt)"
+	
+	clear
+
+	if [[ "$version" == "$curvers" ]]; then
+		printf "You are using the latest version : $version\n"
+		exit
+	fi
+
+	if [[ "$version" != "$curvers" ]]; then
+	 	printf "You are running version $curvers but version $version update is available"
+	 	printf "Update ? (Y/N): "
+	 	read yn
+	 	if [[ "$yn" == 'Y' || "$yn" == 'y' ]]; then
+	 		echo add update script
+	 	fi
+
+	 	echo update cancelled
+	fi
+
+	clear
+
+
+
+
+
+}
+
+
+banner(){
+
+	tput rev && tput bold && tput setaf 2 && printf "\n%s\n" " T - T A L K "  | awk '{ z = '$(tput cols)' - length; y = int(z / 2); x = z - y; printf "%*s%s%*s\n", x, "", $0, y, ""; }' 
+	tput sgr0
+	tput rev && tput bold && tput setaf 2 && printf "\n%s\n" "-----------------"  | awk '{ z = '$(tput cols)' - length; y = int(z / 2); x = z - y; printf "%*s%s%*s\n", x, "", $0, y, ""; }' 
+	tput sgr0
+	tput setaf 15 && printf "\n%s\n" "version 2.0"  | awk '{ z = '$(tput cols)' - length; y = int(z / 2); x = z - y; printf "%*s%s%*s\n", x, "", $0, y, ""; }' 
+	tput sgr0
+	tput setaf 2 && printf "\n%s\n" " Created by - Aakash Pandey - aakash.pandey@live.com"  | awk '{ z = '$(tput cols)' - length; y = int(z / 2); x = z - y; printf "%*s%s%*s\n", x, "", $0, y, ""; }' 
+	tput sgr0
+	tput bold && printf "\n\n%s" "Welcome to T-TALK  Launcher"
+	tput sgr0
+	printf "\n"
+
+}
+
+infoscr(){
+
+	printf "\n%s\n" "T-TALK currenty depends two diffent tools for a successful text exchange, T-TALK X and Y"
+	printf "\n%s\n" "If you are using X make sure the other party is using Y, or vice versa" 
+	tput setaf 15 && printf "\n%s\n" "1.Launch T-Talk X"
+	tput setaf 15 && printf "\n%s\n" "2.Launch T-Talk Y"
+	tput setaf 15 && printf "\n%s\n" "3.Check for updates"
+
+	printf "\n"
+	tput sgr0
+
+}
+
+logic(){
+
+	read -p "Enter your choice(1-2-3): " choice
+		 
+		 if [ "$choice" == "1" ]; then
+		    /home/$usern/.ttalk/./.x
+		 fi
+ 		 
+ 
+		 if [ "$choice" == "2" ]; then
+		    /home/$usern/.ttalk/./.y
+		 fi   
+		 
+		 if [[ "$choice" == "3" ]]; then
+		 	checkup
+		 fi
+}
+
+
+
+
+
+banner
+
+infoscr
+
+logic
+
+
+
+
+
+
+
+
+
+ 
